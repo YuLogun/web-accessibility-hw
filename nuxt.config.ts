@@ -41,10 +41,10 @@ const config: NuxtConfig = {
         }
 
         return {
-            title: 'App',
+            title: 'Логунова Юлия. Домашка по доступности.',
             meta: [
                 { charset: 'utf-8' },
-                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' }
                 // ...this.$store.getters['page/metaInfo']
                 // ...meta
             ],

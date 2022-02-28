@@ -37,6 +37,9 @@ module.exports = {
             fontSize: {
             },
             colors: {
+                purple: {
+                    900: '#5D16D5'
+                }
             },
             spacing: {
             }

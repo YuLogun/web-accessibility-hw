@@ -1,3 +1,18 @@
-@layer base {
+h1, .title-h1 {
+    font-size: 70px;
+    line-height: 79px;
+}
+h2, .title-h2 {
+    font-size: 50px;
+    line-height: 59px;
+}
+h3, .title-h3 {
+    font-size: 26px;
+    line-height: 30px;
+}
 
+.typography {
+    a {
+        @apply underline text-black hover:text-purple-900;
+    }
 }

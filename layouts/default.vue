@@ -1,12 +1,22 @@
 <template>
     <div class="flex flex-col min-h-screen">
-        <div class="container">
-            <Nuxt />
-        </div>
+        <TheHeader />
+        <Nuxt />
+        <TheFooter />
     </div>
 </template>
 
 <script lang="ts">
-export default {};
+import { Vue, Component } from 'nuxt-property-decorator';
+import TheHeader from '~/components/TheHeader.vue';
+import TheFooter from '~/components/TheFooter.vue';
+
+@Component({
+    components: {
+        TheHeader,
+        TheFooter
+    }
+})
+export default class DefaultLayout extends Vue {}
 </script>
 
