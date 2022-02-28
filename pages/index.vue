@@ -1,7 +1,7 @@
 <template>
     <div class="asd">
         <h1 class="my-8 font-bold text-5xl">
-            App skeleton
+            App skeleton 1998
         </h1>
         <div class="mb-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
