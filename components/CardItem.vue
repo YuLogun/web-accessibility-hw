@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article :aria-label="title">
         <img :src="image" :alt="title" class="mb-6">
         <Typograph as="h3" :html="title" class="mb-4" />
         <Typograph v-if="subTitle" :html="subTitle" class="text-xl" />

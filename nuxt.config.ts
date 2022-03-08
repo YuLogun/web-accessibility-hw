@@ -41,6 +41,9 @@ const config: NuxtConfig = {
         }
 
         return {
+            htmlAttrs: {
+                lang: 'ru'
+            },
             title: 'Логунова Юлия. Домашка по доступности.',
             meta: [
                 { charset: 'utf-8' },

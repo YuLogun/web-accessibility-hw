@@ -11,6 +11,12 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 
-@Component
+@Component({
+    head(this: PurchaseTicketPage) {
+        return {
+            title: 'Покупка билета'
+        };
+    }
+})
 export default class PurchaseTicketPage extends Vue {}
 </script>

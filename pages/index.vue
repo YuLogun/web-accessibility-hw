@@ -7,7 +7,7 @@
                     Выставки и события
                 </h2>
                 <div>
-                    <ul class="grid grid-cols-3 gap-10">
+                    <ul aria-labelledby="second_section_title" role="list" class="grid grid-cols-3 gap-10">
                         <li v-for="exhibition in exhibitions" :key="exhibition.id" class="typography">
                             <CardItem
                                 :title="exhibition.title"
@@ -15,16 +15,14 @@
                                 :image="exhibition.image"
                             >
                                 <Typograph v-if="exhibition.description" :html="exhibition.description" class="mt-2 mb-6" />
-                                <BaseButton :href="{name: 'purchase-ticket'}" :aria-labelledby="`purchase_ticket_btn_${exhibition.id}`">
-                                    <span :id="`purchase_ticket_btn_${exhibition.id}`">
-                                        Купить билет
-                                        <Typograph
-                                            role="presentation"
-                                            as="span"
-                                            :html="` на выставку ${exhibition.title}`"
-                                            class="v-h"
-                                        />
-                                    </span>
+                                <BaseButton :href="{name: 'purchase-ticket'}">
+                                    Купить билет
+                                    <Typograph
+                                        role="presentation"
+                                        as="span"
+                                        :html="` на выставку ${exhibition.title}`"
+                                        class="v-h"
+                                    />
                                 </BaseButton>
                             </CardItem>
                         </li>
@@ -55,17 +53,17 @@ export default class IndexPage extends Vue {
         },
         {
             id: 2,
-            title: 'Святослав Рихтер в кругу друзей. Москва — Коктебель 2',
-            subTitle: 'Выставка до 20 ноября',
+            title: 'Тату',
+            subTitle: 'Выставка до 27 сентября',
             description: 'Текст о музее текст Текст о музее текст Текст о музее текст Текст о музее текст',
-            image: '/images/exhibitions/1.jpg'
+            image: '/images/exhibitions/2.jpg'
         },
         {
             id: 3,
-            title: 'Святослав Рихтер в кругу друзей. Москва — Коктебель 3',
-            subTitle: 'Выставка до 20 ноября',
+            title: 'От Дюрера до Матисса. Избранные рисунки из собрания ГМИИ им. А.С. Пушкина',
+            subTitle: 'Выставка до 1 ноября',
             description: 'Текст о музее текст Текст о музее текст Текст о музее текст Текст о музее текст',
-            image: '/images/exhibitions/1.jpg'
+            image: '/images/exhibitions/3.jpg'
         }
     ];
 }
