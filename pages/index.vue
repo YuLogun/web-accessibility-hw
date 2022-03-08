@@ -4,27 +4,37 @@
         <section aria-labelledby="second_section_title">
             <div class="container">
                 <h2 id="second_section_title" class="mb-10">
-                    Выставки и события {{ activeDateFilter }}
+                    Выставки и события
                 </h2>
-                <div
-                    role="radiogroup"
-                    aria-labelledby="exhibitions_filter_title"
-                    class="flex flex-wrap items-center -mx-2 mb-10"
-                >
-                    <span id="exhibitions_filter_title" class="v-h">Фильтр выставок и событий по датам</span>
-                    <div
-                        v-for="toggle in filterToggles"
-                        :key="toggle.id"
-                        class="mx-2 mb-2 text-lg"
-                    >
-                        <ToggleField
-                            :value.sync="activeDateFilter"
-                            type="radio"
-                            :title="toggle.title"
-                            :field-value="toggle.id"
-                        />
-                    </div>
-                </div>
+                <form aria-labelledby="filter_exhibitions_title">
+                    <fieldset role="radiogroup" class="relative flex flex-wrap items-center -mx-2 mb-10">
+                        <legend id="filter_exhibitions_title" class="v-h">
+                            Фильтр выставок и событий по датам
+                        </legend>
+                        <div
+                            v-for="toggle in filterToggles"
+                            :key="toggle.id"
+                            class="mx-2 mb-2 text-lg"
+                        >
+                            <ToggleField
+                                :value.sync="activeDateFilter"
+                                type="radio"
+                                :title="toggle.title"
+                                :field-value="toggle.id"
+                                name="filter-exhibitions-by-date"
+                                :aria-label="`Выставки и события ${toggle.title}`"
+                            />
+                        </div>
+                    </fieldset>
+                    <span aria-live="polite" role="status" class="v-h">
+                        <template v-if="filteredExhibitions.length">
+                            Найдено: {{ filteredExhibitions.length }} {{ pluralize('результат|результата|результатов', filteredExhibitions.length) }}.
+                        </template>
+                        <template v-else>
+                            Выставки и события не найдены.
+                        </template>
+                    </span>
+                </form>
                 <div>
                     <ul
                         aria-labelledby="second_section_title"
@@ -62,6 +72,7 @@ import CardItem from '~/components/CardItem.vue';
 import Typograph from '~/components/Typograph.vue';
 import BaseButton from '~/components/BaseButton.vue';
 import ToggleField from '~/components/form/ToggleField.vue';
+import pluralize from '~/helpers/pluralize';
 
 @Component({
     components: { ToggleField, BaseButton, Typograph, CardItem }
@@ -116,5 +127,7 @@ export default class IndexPage extends Vue {
             ? this.exhibitions
             : this.exhibitions.filter(exhibition => exhibition.dateId === this.activeDateFilter);
     }
+
+    pluralize = pluralize;
 }
 </script>

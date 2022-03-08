@@ -24,6 +24,9 @@ export default class ToggleField extends FormField {
     @Prop({ type: String, default: 'checkbox' })
     readonly type!: 'checkbox' | 'radio';
 
+    @Prop({ type: String })
+    readonly name!: string;
+
     /** Значение инпута с типом === 'radio' */
     @Prop({ type: [String, Number], default: null })
     readonly fieldValue!: string | number | null;
@@ -57,7 +60,8 @@ export default class ToggleField extends FormField {
     get togglePropsCombined(): {[x: string]: string|number|boolean|null} {
         return {
             ...this.inputProps,
-            ...this.ariaProps
+            ...this.ariaProps,
+            name: this.name
         };
     }
 }
