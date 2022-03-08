@@ -39,6 +39,9 @@ module.exports = {
             colors: {
                 purple: {
                     900: '#5D16D5'
+                },
+                gray: {
+                    500: '#C7D2E9'
                 }
             },
             spacing: {
