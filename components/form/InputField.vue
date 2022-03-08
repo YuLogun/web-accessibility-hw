@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { Component, Prop, Ref } from 'nuxt-property-decorator';
-import FormField from '~/components/Form/FormField.vue';
+import FormField from '~/components/form/FormField.vue';
 
 @Component({
     components: { FormField }

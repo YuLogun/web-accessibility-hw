@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'nuxt-property-decorator';
-import FormField from '~/components/Form/FormField.vue';
+import FormField from '~/components/form/FormField.vue';
 import Typograph from '~/components/Typograph.vue';
 
 @Component({
