@@ -1,7 +1,7 @@
 <template>
     <main class="container">
         <section aria-describedby="first_section_title">
-            <h1 id="first_section_title">
+            <h1 id="first_section_title" tabindex="-1" autofocus>
                 Купить билет в музей
             </h1>
         </section>

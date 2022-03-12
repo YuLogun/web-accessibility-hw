@@ -1,6 +1,6 @@
 :root {
     --container-margin: 78px;
-    --container-max-width: 1100px;
+    --container-max-width: 1032px;
 }
 
 @screen sm {
