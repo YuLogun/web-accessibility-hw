@@ -15,7 +15,7 @@ const config: NuxtConfig = {
         postcss: {
             plugins: {
                 cssnano: isProduction ? { preset: 'default' } : false,
-                'postcss-nesting': {}
+                'postcss-nested': {}
             },
             preset: {
                 autoprefixer: {
@@ -92,7 +92,8 @@ const config: NuxtConfig = {
         // Doc: https://github.com/nuxt-community/eslint-module
         '@nuxtjs/eslint-module',
         '@nuxtjs/tailwindcss',
-        '@nuxtjs/svg'
+        '@nuxtjs/svg',
+        '@nuxtjs/svg-sprite'
     ],
 
     /*

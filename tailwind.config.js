@@ -41,7 +41,8 @@ module.exports = {
                     900: '#5D16D5'
                 },
                 gray: {
-                    500: '#C7D2E9'
+                    500: '#C7D2E9',
+                    50: '#F9F9FB'
                 }
             },
             spacing: {

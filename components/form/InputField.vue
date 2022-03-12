@@ -8,12 +8,13 @@
             v-model="inputValue"
             class="field__input"
             v-bind="inputPropsCombined"
-            :aria-describedby="errorId"
-            :aria-invalid="!!error"
             v-on="inputListeners"
             @focus="onFocus"
             @blur="onBlur"
         >
+        <template v-if="'append' in $slots" #append>
+            <slot name="append"></slot>
+        </template>
     </FormField>
 </template>
 
@@ -37,16 +38,18 @@ export default class InputField extends FormField {
     @Prop({ type: Number, default: null })
     readonly maxlength!: number|null;
 
+    @Ref()
+    readonly inputElement!: HTMLInputElement;
+
     get inputPropsCombined(): {[x: string]: string|number|boolean|null} {
         return {
             ...this.inputProps,
             autocomplete: this.autocomplete,
             maxlength: this.maxlength,
-            inputmode: this.inputmode
+            inputmode: this.inputmode,
+            'aria-invalid': !!this.error,
+            'aria-describedby': (this.error && this.errorId) ? this.errorId : null
         };
     }
-
-    @Ref()
-    readonly inputElement!: HTMLInputElement;
 }
 </script>
