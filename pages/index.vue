@@ -1,7 +1,7 @@
 <template>
     <main class="flex-1 pt-8 pb-32 lg:pb-24">
         <!-- Выставки и события -->
-        <section id="section_exhibitions_events" aria-labelledby="second_section_title">
+        <section id="section_exhibitions_events" class="mb-24" aria-labelledby="second_section_title">
             <div class="container">
                 <h2 id="second_section_title" class="mb-10 lg:mb-6">
                     Выставки и события
@@ -63,6 +63,67 @@
                 </div>
             </div>
         </section>
+
+        <!-- Музей -->
+        <section aria-labelledby="third_section_title">
+            <div class="container">
+                <h2 id="third_section_title" class="mb-10 lg:mb-6">
+                    Музей
+                </h2>
+                <div role="tablist" class="flex flex-wrap items-center -mx-2 mb-11">
+                    <div
+                        v-for="tab in tabs"
+                        :id="tab.id"
+                        :key="tab.id"
+                        :aria-controls="tab.controls"
+                        role="tab"
+                        class="mx-2 text-lg mb-2"
+                    >
+                        <ToggleField
+                            :value.sync="activeTab"
+                            type="radio"
+                            :title="tab.title"
+                            :field-value="tab.id"
+                            name="museum-info"
+                            :aria-label="`Информация о музее ${tab.title}`"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    v-if="activeTab === 'museum_info_buildings_title'"
+                    id="museum_info_buildings"
+                    role="tabpanel"
+                    aria-labelledby="museum_info_buildings_title"
+                >
+                    1
+                </div>
+
+                <div
+                    v-if="activeTab === 'museum_info_history_title'"
+                    id="museum_info_history"
+                    role="tabpanel"
+                    class="typography"
+                    aria-labelledby="museum_info_history"
+                >
+                    <p>
+                        Государственный музей изобразительных искусств имени А.С. Пушкина – одно из крупнейших в России художественных собраний зарубежного искусства с древнейших времен до наших дней.
+                    </p>
+                    <p>
+                        В современной экспозиции представлены обширная учебная коллекция тонированных гипсовых слепков с произведений Античности, Средних веков и эпохи Возрождения, а также собрание подлинных произведений живописи, скульптуры, графики и декоративно-прикладного искусства.
+                    </p>
+                    <p>
+                        В залах первого этажа Главного здания представлены: произведения искусства Древнего Египта, Античности, собрание европейской живописи VIII–XVIII веков; два зала – Итальянский и Греческий дворики – занимают слепки. На втором этаже Главного здания в залах размещены слепки произведений искусства Древней Греции, Рима, Средних веков и Возрождения.
+                    </p>
+                    <p>
+                        В начале 2017 года музей определил новое направление своей деятельности – Пушкинский XXI, – ориентированное на современное российское и западное искусство во всех аспектах – выставочном, образовательном и исследовательском. Таким образом, ГМИИ им. А.С. Пушкина представляет собой открытую, интерактивную сцену, демонстрирующую развитие мировой культуры с древности до наших дней, живое, знакомое с детства пространство для получения знаний и общения.
+                    </p>
+                    <BaseButton href="#">
+                        Читать далее
+                    </BaseButton>
+                </div>
+            </div>
+        </section>
     </main>
 </template>
 
@@ -79,6 +140,7 @@ import pluralize from '~/helpers/pluralize';
 })
 export default class IndexPage extends Vue {
     activeDateFilter = 1;
+    activeTab = 'museum_info_buildings_title';
 
     filterToggles = [
         {
@@ -119,6 +181,19 @@ export default class IndexPage extends Vue {
             description: 'Текст о музее текст Текст о музее текст Текст о музее текст Текст о музее текст',
             image: '/images/exhibitions/3.jpg',
             dateId: 3
+        }
+    ];
+
+    tabs = [
+        {
+            title: 'Здания',
+            id: 'museum_info_buildings_title',
+            controls: 'museum_info_buildings'
+        },
+        {
+            title: 'История',
+            id: 'museum_info_history_title',
+            controls: 'museum_info_history'
         }
     ];
 
