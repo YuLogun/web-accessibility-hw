@@ -66,7 +66,12 @@ module.exports = {
                 gray: {
                     600: '#B3BDD1',
                     500: '#C7D2E9',
+                    100: '#F1F1F1',
                     50: '#F9F9FB'
+                },
+                black: {
+                    DEFAULT: '#000000',
+                    900: '#121212'
                 }
             },
             spacing: {

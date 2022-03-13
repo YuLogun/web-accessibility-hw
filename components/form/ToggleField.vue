@@ -1,5 +1,10 @@
 <template>
-    <label class="toggle">
+    <label
+        class="toggle"
+        :class="{
+            [`toggle_view_${view}`]: view
+        }"
+    >
         <input
             v-model="inputValue"
             :type="type"
@@ -7,7 +12,12 @@
             v-bind="togglePropsCombined"
             class="toggle__input"
         >
-        <Typograph :html="title" as="span" class="toggle__content" />
+        <span v-if="view === 'check'" aria-hidden="true" class="toggle__fake">
+            <span class="toggle__mark">
+                <BaseIcon name="check" width="22" height="22" />
+            </span>
+        </span>
+        <Typograph v-if="title" :html="title" as="span" class="toggle__content" />
     </label>
 </template>
 
@@ -16,20 +26,23 @@
 import { Component, Prop } from 'nuxt-property-decorator';
 import FormField from '~/components/form/FormField.vue';
 import Typograph from '~/components/Typograph.vue';
+import BaseIcon from '~/components/BaseIcon.vue';
 
 @Component({
-    components: { FormField, Typograph }
+    components: { BaseIcon, FormField, Typograph }
 })
 export default class ToggleField extends FormField {
     @Prop({ type: String, default: 'checkbox' })
     readonly type!: 'checkbox' | 'radio';
 
+    @Prop({ type: String, default: 'base' })
+    readonly view?: string;
+
     @Prop({ type: String })
     readonly name!: string;
 
-    /** Значение инпута с типом === 'radio' */
-    @Prop({ type: [String, Number], default: null })
-    readonly fieldValue!: string | number | null;
+    @Prop({ type: [String, Number, Boolean], default: null })
+    readonly fieldValue!: string | number | boolean | null;
 
     get ariaProps(): {[x: string]: any} {
         const aria = {};
@@ -40,7 +53,9 @@ export default class ToggleField extends FormField {
         } else {
             isChecked = Array.isArray(this.inputValue)
                 ? this.inputValue.includes(this.fieldValue)
-                : this.fieldValue === this.inputValue;
+                : typeof this.inputValue === 'boolean'
+                    ? this.inputValue
+                    : this.fieldValue === this.inputValue;
         }
 
         Object.assign(aria, {
@@ -69,17 +84,46 @@ export default class ToggleField extends FormField {
 
 <style lang="postcss">
 .toggle {
-    @apply relative flex items-center justify-center;
+    @apply relative flex items-center;
     .toggle__content {
-        @apply relative cursor-pointer rounded-lg py-4 px-8 transition duration-300 ease-in-out hover:bg-gray-500 hover:bg-opacity-40;
+        @apply relative cursor-pointer transition-main;
+    }
+    .toggle__fake {
+        @apply flex-shrink-0 w-[24px] h-[24px] rounded cursor-pointer flex items-center justify-center bg-white relative before:block before:absolute before:inset-0 before:border before:border-black-900 before:rounded;
+    }
+    .toggle__mark {
+        @apply transition-main opacity-0 text-white fill-current;
     }
     .toggle__input {
         @apply absolute inset-0 opacity-0 pointer-events-none;
         &:checked +  .toggle__content {
-            @apply bg-gray-500 cursor-default;
+            @apply bg-gray-500;
         }
-        &:focus-visible +  .toggle__content {
+        &:checked +  .toggle__fake {
+            @apply bg-purple-900 cursor-default before:border-purple-900;
+            .toggle__mark {
+                @apply opacity-100;
+            }
+        }
+        &:focus-visible ~ .toggle__content {
             outline: 2px solid #5D16D5;
+        }
+    }
+}
+.toggle_view_base {
+    @apply justify-center;
+    .toggle__content {
+        @apply rounded-lg py-4 px-8 hover:bg-gray-500 hover:bg-opacity-40;
+    }
+}
+.toggle_view_check {
+    @apply -mx-1 hover:opacity-70;
+    .toggle {
+        &__content {
+            @apply mx-1;
+        }
+        &__fake {
+            @apply mx-1;
         }
     }
 }

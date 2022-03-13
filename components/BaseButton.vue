@@ -78,10 +78,19 @@ export default class BaseButton extends Vue {
 .button_theme_gray-500 {
     @apply bg-gray-500 hover:bg-gray-600;
 }
+.button_theme_purple-900 {
+    @apply bg-purple-900 text-white hover:bg-purple-700;
+    &:focus-visible {
+        outline: 2px solid #121212;
+    }
+}
 .button_size_base {
     @apply py-3.5 px-5 rounded-lg text-3xl;
 }
 .button_size_medium {
     @apply py-1.5 px-3 text-xl rounded;
+}
+.button_size_xmedium {
+    @apply py-2 px-4 text-xl rounded-lg;
 }
 </style>

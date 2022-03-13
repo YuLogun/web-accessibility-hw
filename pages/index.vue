@@ -1,5 +1,5 @@
 <template>
-    <main class="flex-1">
+    <main class="flex-1 pt-8 pb-32">
         <!-- Выставки и события -->
         <section id="section_exhibitions_events" aria-labelledby="second_section_title">
             <div class="container">

@@ -11,7 +11,7 @@
                 >
                     Перейти к основному контенту
                 </BaseButton>
-                <LogoItem />
+                <LogoItem class="flex-shrink-0" />
                 <div class="flex-auto ml-4 flex items-center justify-end -mx-2">
                     <form role="search" class="flex-auto max-w-[295px] mx-2">
                         <InputField type="search" aria-label="Поиск по сайту">
