@@ -76,9 +76,12 @@ export default class BaseButton extends Vue {
 
 <style lang="postcss">
 .button_theme_gray-500 {
-    @apply bg-gray-500 hover:opacity-70;
+    @apply bg-gray-500 hover:bg-gray-600;
 }
 .button_size_base {
     @apply py-3.5 px-5 rounded-lg text-3xl;
+}
+.button_size_medium {
+    @apply py-1.5 px-3 text-xl rounded;
 }
 </style>

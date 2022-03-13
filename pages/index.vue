@@ -1,7 +1,7 @@
 <template>
     <main class="flex-1">
         <!-- Выставки и события -->
-        <section aria-labelledby="second_section_title">
+        <section id="section_exhibitions_events" aria-labelledby="second_section_title">
             <div class="container">
                 <h2 id="second_section_title" class="mb-10">
                     Выставки и события
