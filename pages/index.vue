@@ -1,13 +1,13 @@
 <template>
-    <main class="flex-1 pt-8 pb-32">
+    <main class="flex-1 pt-8 pb-32 lg:pb-24">
         <!-- Выставки и события -->
         <section id="section_exhibitions_events" aria-labelledby="second_section_title">
             <div class="container">
-                <h2 id="second_section_title" class="mb-10">
+                <h2 id="second_section_title" class="mb-10 lg:mb-6">
                     Выставки и события
                 </h2>
                 <form aria-labelledby="filter_exhibitions_title">
-                    <fieldset role="radiogroup" class="relative flex flex-wrap items-center -mx-2 mb-10">
+                    <fieldset role="radiogroup" class="relative flex flex-wrap items-center -mx-2 mb-10 lg:mb-6">
                         <legend id="filter_exhibitions_title" class="v-h">
                             Фильтр выставок и событий по датам
                         </legend>

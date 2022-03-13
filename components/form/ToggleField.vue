@@ -127,4 +127,11 @@ export default class ToggleField extends FormField {
         }
     }
 }
+@screen lg {
+    .toggle_view_base {
+        .toggle__content {
+            @apply py-2 px-4;
+        }
+    }
+}
 </style>

@@ -16,3 +16,15 @@ h3, .title-h3 {
         @apply underline text-black hover:text-purple-900;
     }
 }
+
+@screen lg {
+    h1, .title-h1 {
+        @apply text-5xl;
+    }
+    h2, .title-h2 {
+        @apply text-4xl;
+    }
+    h3, .title-h3 {
+        @apply text-2xl;
+    }
+}

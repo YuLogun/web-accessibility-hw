@@ -13,7 +13,7 @@
             </h2>
         </template>
         <form @submit.prevent="$emit('close')">
-            <fieldset class="grid gap-14">
+            <fieldset class="grid gap-14 lg:gap-10">
                 <legend class="v-h">
                     Авторизация на сайте
                 </legend>
@@ -21,14 +21,14 @@
                     :value.sync="login"
                     title="Логин"
                     placeholder="Введите логин"
-                    class="text-3xl"
+                    class="text-3xl lg:text-lg"
                 />
                 <InputField
                     :value.sync="password"
                     type="password"
                     title="Пароль"
                     placeholder="Введите пароль"
-                    class="text-3xl"
+                    class="text-3xl lg:text-lg"
                 />
                 <BaseButton type="submit" theme="gray-500" size="base">
                     Вход

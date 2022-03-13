@@ -38,8 +38,8 @@ export default class ConfirmLayer extends Vue {
 <style scoped lang="postcss">
 .layer {
     &__container {
-        @apply relative bg-white rounded-lg max-w-[792px] w-full;
         padding: 70px 153px;
+        @apply relative bg-white rounded-lg max-w-[792px] w-full lg:p-10 lg:pt-24;
     }
     &__close {
         @apply absolute top-6 right-6;

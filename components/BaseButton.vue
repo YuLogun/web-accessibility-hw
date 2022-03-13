@@ -85,12 +85,12 @@ export default class BaseButton extends Vue {
     }
 }
 .button_size_base {
-    @apply py-3.5 px-5 rounded-lg text-3xl;
+    @apply py-3.5 px-5 rounded-lg text-3xl lg:text-xl sm:text-base sm:py-1 sm:px-2;
 }
 .button_size_medium {
-    @apply py-1.5 px-3 text-xl rounded;
+    @apply py-1.5 px-3 text-xl rounded lg:text-lg sm:text-base sm:py-1 sm:px-2;
 }
 .button_size_xmedium {
-    @apply py-2 px-4 text-xl rounded-lg;
+    @apply py-2 px-4 text-xl rounded-lg sm:py-1 sm:px-2;
 }
 </style>
