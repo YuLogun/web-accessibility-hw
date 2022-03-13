@@ -96,15 +96,38 @@
                     role="tabpanel"
                     aria-labelledby="museum_info_buildings_title"
                 >
-                    1
+                    <ul
+                        aria-labelledby="museum_info_buildings_title"
+                        role="list"
+                        class="grid grid-cols-3 gap-10 lg:grid-cols-2 sm:grid-cols-1"
+                    >
+                        <li v-for="building in museumBuildings" :key="building.id" class="typography">
+                            <CardItem
+                                :title="building.title"
+                                :image="building.image"
+                            >
+                                <Typograph v-if="building.description" :html="building.description" class="mt-2 mb-6" />
+                                <BaseButton :href="{name: 'museum-buildings'}">
+                                    Подробнее
+                                    <Typograph
+                                        role="presentation"
+                                        as="span"
+                                        :html="` о здании музея ${building.title}`"
+                                        class="v-h"
+                                    />
+                                </BaseButton>
+                            </CardItem>
+                        </li>
+                    </ul>
                 </div>
+
 
                 <div
                     v-if="activeTab === 'museum_info_history_title'"
                     id="museum_info_history"
                     role="tabpanel"
                     class="typography"
-                    aria-labelledby="museum_info_history"
+                    aria-labelledby="museum_info_history_title"
                 >
                     <p>
                         Государственный музей изобразительных искусств имени А.С. Пушкина – одно из крупнейших в России художественных собраний зарубежного искусства с древнейших времен до наших дней.
@@ -194,6 +217,45 @@ export default class IndexPage extends Vue {
             title: 'История',
             id: 'museum_info_history_title',
             controls: 'museum_info_history'
+        }
+    ];
+
+    museumBuildings = [
+        {
+            id: 1,
+            title: 'МЕМОРИАЛЬНАЯ КВАРТИРА С.Т. РИХТЕРА',
+            description: 'ул. Большая Бронная, 2/6, 16 этаж, кв. 58',
+            image: '/images/buildings/1.jpg'
+        },
+        {
+            id: 2,
+            title: 'ЦЭВ «МУСЕЙОН»',
+            description: 'Колымажный пер., 6/2, 3 (вход с Малого Знаменского переулка)',
+            image: '/images/buildings/2.jpg'
+        },
+        {
+            id: 3,
+            title: 'УСАДЬБА ЛОПУХИНЫХ',
+            description: 'Малый Знаменский пер., 3/5с4',
+            image: '/images/buildings/3.jpg'
+        },
+        {
+            id: 4,
+            title: 'УЧЕБНЫЙ МУЗЕЙ',
+            description: 'ул. Чаянова, 15',
+            image: '/images/buildings/4.jpg'
+        },
+        {
+            id: 5,
+            title: 'ОТДЕЛ ЛИЧНЫХ КОЛЛЕКЦИЙ',
+            description: 'ул. Волхонка, 10',
+            image: '/images/buildings/5.jpg'
+        },
+        {
+            id: 6,
+            title: 'ГАЛЕРЕЯ',
+            description: 'ул. Волхонка, 14',
+            image: '/images/buildings/6.jpg'
         }
     ];
 
