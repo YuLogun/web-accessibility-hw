@@ -32,7 +32,7 @@ export default class InputField extends FormField {
     @Prop({ type: String, default: null })
     readonly autocomplete!: string|null;
 
-    @Prop({ type: String, default: null })
+    @Prop({ type: String, default: 'text' })
     readonly inputmode!: string|null;
 
     @Prop({ type: Number, default: null })

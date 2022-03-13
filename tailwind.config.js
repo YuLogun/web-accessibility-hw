@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /**
  * Баг с JIT
  *
@@ -29,7 +31,28 @@ module.exports = {
          * Многострочное троеточие
          * {@link https://github.com/tailwindlabs/tailwindcss-line-clamp Инструкция}
          */
-        require('@tailwindcss/line-clamp')
+        require('@tailwindcss/line-clamp'),
+
+        /** транзишны */
+        plugin(function({ addUtilities }) {
+            const newUtilities = {
+                '.transition-fast': {
+                    transition: '0.15s cubic-bezier(0.645, 0.045, 0.355, 1)'
+                },
+                '.transition-main': {
+                    transition: '0.25s cubic-bezier(0.645, 0.045, 0.355, 1)'
+                },
+                '.transition-medium': {
+                    transition: '0.5s cubic-bezier(0.645, 0.045, 0.355, 1)'
+                },
+                '.transition-long': {
+                    transition: '0.75s cubic-bezier(0.645, 0.045, 0.355, 1)'
+                }
+            };
+
+            addUtilities(newUtilities, ['responsive', 'hover']);
+        })
+
     ],
 
     theme: {

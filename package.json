@@ -23,6 +23,8 @@
     "cssnano": "^5.0.2",
     "dayjs": "^1.9.6",
     "es6-promisify": "^6.1.1",
+    "focus-trap": "^6.7.3",
+    "focus-trap-vue": "^1.1.1",
     "lodash": "^4.17.20",
     "nuxt": "^2.15.4",
     "nuxt-property-decorator": "^2.9.1",
@@ -31,7 +33,8 @@
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^6.7.0",
     "typescript": "^4.2.3",
-    "typograf": "^6.14.1"
+    "typograf": "^6.14.1",
+    "vue-focus-lock": "^2.0.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",

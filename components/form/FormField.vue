@@ -40,12 +40,15 @@ export default class BaseFormField extends mixins(FormFieldMixin) {
 
 <style lang="postcss">
 .field {
-    @apply relative flex bg-gray-50 before:block before:absolute before:-inset-px before:border before:border-gray-500;
+    @apply relative rounded-lg flex bg-gray-50 before:block before:absolute before:-inset-px before:border before:border-gray-500 before:rounded-lg;
     .field__input {
-        @apply relative w-full h-full bg-gray-50;
+        @apply relative w-full h-full bg-gray-50 rounded-lg py-3 px-5;
     }
     .field__side {
         @apply fill-current flex-shrink-0 flex items-center pr-4 pl-1;
+    }
+    .field__title {
+        @apply absolute -top-7 text-lg;
     }
     &.focused {
         @apply before:border-purple-900;

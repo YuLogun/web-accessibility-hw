@@ -15,7 +15,7 @@
                 </form>
                 <LocaleSwitcher class="mx-2 ml-4" />
                 <div class="mx-2 ml-8">
-                    <button aria-label="Войти" class="hover:opacity-70">
+                    <button aria-label="Войти" class="hover:opacity-70" type="button" @click.prevent="$layer.open('AuthLayer')">
                         <span>
                             <BaseIcon name="user" width="46" height="46" />
                         </span>

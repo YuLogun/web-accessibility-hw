@@ -2,9 +2,14 @@
     <Component
         :is="componentName"
         v-bind="componentAttrs"
+        class="button"
+        :class="{
+            [`button_theme_${theme}`]: theme,
+            [`button_size_${size}`]: size
+        }"
         v-on="$listeners"
     >
-        <span>
+        <span class="button__content">
             <slot></slot>
         </span>
     </Component>
@@ -24,6 +29,12 @@ export default class BaseButton extends Vue {
 
     @Prop({ type: Boolean, default: false })
     readonly disabled!: boolean;
+
+    @Prop({ type: String, required: false })
+    readonly theme?: string;
+
+    @Prop({ type: String, required: false })
+    readonly size?: string;
 
     /** Определить тип компонента */
     get componentName(): string {
@@ -62,3 +73,12 @@ export default class BaseButton extends Vue {
 
 }
 </script>
+
+<style lang="postcss">
+.button_theme_gray-500 {
+    @apply bg-gray-500 hover:opacity-70;
+}
+.button_size_base {
+    @apply py-3.5 px-5 rounded-lg text-3xl;
+}
+</style>

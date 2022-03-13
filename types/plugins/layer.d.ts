@@ -1,6 +1,6 @@
 export interface LayerInterface {
-    open<T = any>(props?: Record<string, unknown>): Promise<T>
-    close<T = any>(props?: Record<string, unknown>): Promise<T>
+    open<T = any>(name: string, props?: Record<string, unknown>): Promise<T>
+    close<T = any>(key: string, props?: Record<string, unknown>): Promise<T>
     alert<T = any>(props?: Record<string, unknown>): Promise<T>
     confirm<T = any>(props?: Record<string, unknown>): Promise<T>
     closeAll<T = any>(): Promise<T>
